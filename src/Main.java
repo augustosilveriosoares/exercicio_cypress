@@ -1,12 +1,21 @@
+import generics.IGenericCar;
+import model.StockCar;
+import model.Tesla;
+import model.Toyota;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main (String args[]){
 
-        Factory factory1 = new HondaFactory();
-        Factory factory2 = new TeslaFactory();
-        String modelo1 = factory1.recuperaCarro();
-        String modelo2 = factory2.recuperaCarro();
-        Carro carro = factory1.fabrica(modelo1);
-        Carro carro2 = factory2.fabrica(modelo2);
+        StockCar<IGenericCar> car = new StockCar<>();
+        car.addStockCar(new Tesla("Model S"));
+        car.addStockCar(new Toyota("Hilux SW4"));
+        car.listCars();
+
+
+
     }
 }
